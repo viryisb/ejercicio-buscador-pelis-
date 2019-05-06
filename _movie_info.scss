@@ -1,0 +1,29 @@
+/* .movie-info h2.title{
+    color: $primary-color;
+    font-weight:900;
+
+} */
+/* .movie-info .written-by strong{
+    font-weight: 900;
+    color: blue;
+} */
+//estilos aninados: 
+
+
+.movie-info{
+  #rated{
+    @include cambialaopacidad (0.5);
+  }
+  h2.title{
+    color: $primary-color;
+    font-weight:900;
+
+  }
+
+  .written-by {
+      strong{
+    font-weight: 900;
+    color: blue;
+} 
+}
+}
