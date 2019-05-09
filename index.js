@@ -23,9 +23,12 @@ const directedBy = document.querySelector('.movie-info .directed-by span');
 const starring = document.querySelector('.movie-info .starring span');
 const image = document.querySelector('#movie img');
 
+
+
+
 // keyup
 // keydown
-input.addEventListener('keypress', function (event) {
+/* input.addEventListener('keypress', function (event) {
   // pregunto si la persona presionó la tecla enter
   if (event.keyCode === 13) {
     // guardo el valor que la persona ingreso en el input
@@ -35,7 +38,26 @@ input.addEventListener('keypress', function (event) {
     .then( data => {
 
         console.log (data)
-
+ */
+input.addEventListener('keypress', function (event) {
+  if (event.keyCode === 13) {
+      const movieName = input.value;
+      fetch(`https://www.omdbapi.com/?apikey=2fb7569a&t=${movieName}`)
+          .then(res => res.json())
+          .then(movie => {
+              title.innerText = movie.Title;
+              rated.innerText = movie.Rated;
+              year.innerText = movie.Year;
+              genre.innerText = movie.Genre;
+              description.innerText = movie.Plot;
+              writtenBy.innerText = movie.Writer;
+              directedBy.innerText = movie.Director;
+              starring.innerText = movie.Actors;
+              image.src = movie.Poster;
+              poster.src = movie.Poster;
+          })
+  }
+});
 
 
   
@@ -52,7 +74,7 @@ input.addEventListener('keypress', function (event) {
       // me quedo con la primer pelicula que encontramos
       const movie = moviesFiltered[0];
  */
-if (movie) {  
+/* if (movie) {  
       title.innerText = movie.Title; 
       // title.innerHTML = movie.Title;
 
@@ -66,6 +88,4 @@ if (movie) {
 
       image.src = movie.Poster;
     } 
-})
-  }
-})
+ */
